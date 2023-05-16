@@ -42,11 +42,19 @@ swc_core = { version = "0.76.18" }
 testing = { version = "0.33.11" }
 
 # Turbo crates
+<<<<<<< HEAD
 turbopack-binding = { git = "https://github.com/vercel/turbo.git", tag = "turbopack-230518.4" }
 # [TODO]: need to refactor embed_directory! macro usages, as well as resolving turbo_tasks::function, macros..
 turbo-tasks = { git = "https://github.com/vercel/turbo.git", tag = "turbopack-230518.4" }
 # [TODO]: need to refactor embed_directory! macro usage in next-core
 turbo-tasks-fs = { git = "https://github.com/vercel/turbo.git", tag = "turbopack-230518.4" }
+=======
+turbopack-binding = { path = "../turbo/crates/turbopack-binding" } # last tag: "turbopack-230516.1"
+# [TODO]: need to refactor embed_directory! macro usages, as well as resolving turbo_tasks::function, macros..
+turbo-tasks = { path = "../turbo/crates/turbo-tasks" } # last tag: "turbopack-230516.1"
+# [TODO]: need to refactor embed_directory! macro usage in next-core
+turbo-tasks-fs = { path = "../turbo/crates/turbo-tasks-fs" } # last tag: "turbopack-230516.1"
+>>>>>>> 557938a6c7 (Next Build POC)
 
 # General Deps
 
@@ -123,6 +131,7 @@ tiny-gradient = "0.1.0"
 tokio = "1.25.0"
 tokio-util = { version = "0.7.7", features = ["io"] }
 tracing = "0.1.37"
+tracing-subscriber = "0.3.9"
 url = "2.2.2"
 urlencoding = "2.1.2"
 webbrowser = "0.8.7"
