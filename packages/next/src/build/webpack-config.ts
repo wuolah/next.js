@@ -1973,6 +1973,9 @@ export default async function getBaseWebpackConfig(
               ...codeCondition,
               issuerLayer: WEBPACK_LAYERS.middleware,
               use: defaultLoaders.babel,
+              resolve: {
+                conditionNames: conditionNamesPerModuleType.edge,
+              },
             },
             ...(hasServerComponents
               ? [
