@@ -14,7 +14,7 @@ const { createServer } = require(process.env.USE_HTTPS === 'true'
   ? 'https'
   : 'http')
 
-const app = next({ dev, hostname: 'localhost', port, dir })
+const app = next({ dev, hostname: '127.0.0.1', port, dir })
 const handleNextRequests = app.getRequestHandler()
 
 const httpOptions = {
@@ -38,7 +38,7 @@ app.prepare().then(() => {
     } else if (/setEmptyAssetPrefix/.test(req.url)) {
       app.setAssetPrefix(null)
     } else {
-      // This is to support multi-zones support in localhost
+      // This is to support multi-zones support in 127.0.0.1
       // and may be in staging deployments
       app.setAssetPrefix('')
     }
@@ -71,6 +71,6 @@ app.prepare().then(() => {
       throw err
     }
 
-    console.log(`> Ready on http://localhost:${port}`)
+    console.log(`> Ready on http://127.0.0.1:${port}`)
   })
 })

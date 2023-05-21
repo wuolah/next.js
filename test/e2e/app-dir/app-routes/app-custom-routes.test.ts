@@ -502,7 +502,7 @@ createNextDescribe(
           },
         })
 
-        const url = 'http://localhost:3000/dynamic'
+        const url = 'http://127.0.0.1:3000/dynamic'
 
         expect(res.status).toEqual(200)
         expect(await res.json()).toEqual({

@@ -29,7 +29,7 @@ describe('manual-client-base-path', () => {
     })
     const getProxyTarget = (req) => {
       const destination = new URL(next.url)
-      const reqUrl = new URL(req.url, 'http://localhost')
+      const reqUrl = new URL(req.url, 'http://127.0.0.1')
       // force IPv4 for testing in node 17+ as the default
       // switched to favor IPv6 over IPv4
       destination.hostname = '127.0.0.1'

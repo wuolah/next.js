@@ -356,7 +356,7 @@ describe('CLI Usage', () => {
       })
       try {
         await check(() => output, new RegExp(`on 0.0.0.0:${port}`))
-        await check(() => output, new RegExp(`http://localhost:${port}`))
+        await check(() => output, new RegExp(`http://127.0.0.1:${port}`))
       } finally {
         await killApp(app)
       }
@@ -372,7 +372,7 @@ describe('CLI Usage', () => {
       })
       try {
         await check(() => output, new RegExp(`on 0.0.0.0:${port}`))
-        await check(() => output, new RegExp(`http://localhost:${port}`))
+        await check(() => output, new RegExp(`http://127.0.0.1:${port}`))
       } finally {
         await killApp(app)
       }
@@ -419,7 +419,7 @@ describe('CLI Usage', () => {
       })
       try {
         await check(() => output, new RegExp(`on 0.0.0.0:${port}`))
-        await check(() => output, new RegExp(`http://localhost:${port}`))
+        await check(() => output, new RegExp(`http://127.0.0.1:${port}`))
       } finally {
         await killApp(app)
       }
@@ -436,7 +436,7 @@ describe('CLI Usage', () => {
       })
       try {
         await check(() => output, new RegExp(`on 0.0.0.0:${port}`))
-        await check(() => output, new RegExp(`http://localhost:${port}`))
+        await check(() => output, new RegExp(`http://127.0.0.1:${port}`))
       } finally {
         await killApp(app)
       }
@@ -489,7 +489,7 @@ describe('CLI Usage', () => {
       )
       try {
         await check(() => output, new RegExp(`on 0.0.0.0:${port}`))
-        await check(() => output, new RegExp(`http://localhost:${port}`))
+        await check(() => output, new RegExp(`http://127.0.0.1:${port}`))
       } finally {
         await killApp(app)
       }
@@ -509,7 +509,7 @@ describe('CLI Usage', () => {
       )
       try {
         await check(() => output, new RegExp(`on 0.0.0.0:${port}`))
-        await check(() => output, new RegExp(`http://localhost:${port}`))
+        await check(() => output, new RegExp(`http://127.0.0.1:${port}`))
       } finally {
         await killApp(app)
       }

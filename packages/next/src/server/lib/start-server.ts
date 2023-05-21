@@ -141,7 +141,7 @@ export async function startServer({
       const addr = server.address()
       port = typeof addr === 'object' ? addr?.port || port : port
 
-      let host = !hostname || hostname === '0.0.0.0' ? 'localhost' : hostname
+      let host = !hostname || hostname === '0.0.0.0' ? '127.0.0.1' : hostname
 
       let normalizedHostname = hostname || '0.0.0.0'
 
@@ -241,7 +241,7 @@ export async function startServer({
 
       const getProxyServer = (pathname: string) => {
         const targetUrl = `http://${
-          targetHost === 'localhost' ? '127.0.0.1' : targetHost
+          targetHost === '127.0.0.1' ? '127.0.0.1' : targetHost
         }:${routerPort}${pathname}`
         const proxyServer = httpProxy.createProxy({
           target: targetUrl,

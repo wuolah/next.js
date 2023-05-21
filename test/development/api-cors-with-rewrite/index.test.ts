@@ -37,7 +37,7 @@ describe('Rewritten API Requests should pass OPTIONS requests to the api functio
     const res = await fetchViaHTTP(next.url, '/some-endpoint', null, {
       method: 'OPTIONS',
       headers: {
-        Origin: 'http://localhost:3000',
+        Origin: 'http://127.0.0.1:3000',
       },
     })
     expect(await res.text()).toContain('successfully hit some-endpoint!')

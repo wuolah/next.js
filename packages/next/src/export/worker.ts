@@ -385,7 +385,7 @@ export default async function exportPage({
 
         if (isRouteHandler) {
           // Ensure that the url for the page is absolute.
-          req.url = `http://localhost:3000${req.url}`
+          req.url = `http://127.0.0.1:3000${req.url}`
           const request = NextRequestAdapter.fromNodeNextRequest(
             new NodeNextRequest(req)
           )

@@ -172,7 +172,7 @@ export class Selenium extends BrowserInterface {
     if (isBrowserStack) {
       seleniumServerUrl = 'http://hub-cloud.browserstack.com/wd/hub'
     } else if (localSeleniumServer) {
-      seleniumServerUrl = `http://localhost:4444/wd/hub`
+      seleniumServerUrl = `http://127.0.0.1:4444/wd/hub`
     }
 
     browser = new Builder()

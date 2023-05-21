@@ -5,7 +5,7 @@ const PROXY_PORT = process.env.PROXY_PORT
 const SERVER_PORT = process.env.SERVER_PORT
 
 httpProxy
-  .createProxyServer({ target: 'http://localhost:' + SERVER_PORT })
+  .createProxyServer({ target: 'http://127.0.0.1:' + SERVER_PORT })
   .listen(PROXY_PORT)
 
 const cssResponse = `

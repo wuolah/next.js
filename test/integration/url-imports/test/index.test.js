@@ -102,7 +102,7 @@ describe(`Handle url imports`, () => {
               browser
                 .elementByCss('#static-css')
                 .getComputedCss('background-image'),
-            /^url\("http:\/\/localhost:\d+\/_next\/static\/media\/vercel\.[0-9a-f]{8}\.png"\)$/
+            /^url\("http:\/\/127.0.0.1:\d+\/_next\/static\/media\/vercel\.[0-9a-f]{8}\.png"\)$/
           )
         } finally {
           await browser.close()

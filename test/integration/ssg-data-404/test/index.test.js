@@ -58,7 +58,7 @@ describe('SSG data 404', () => {
       app = await launchApp(appDir, appPort)
 
       const proxy = httpProxy.createProxyServer({
-        target: `http://localhost:${appPort}`,
+        target: `http://127.0.0.1:${appPort}`,
       })
       proxyPort = await findPort()
 
@@ -90,7 +90,7 @@ describe('SSG data 404', () => {
       app = await nextStart(appDir, appPort)
 
       const proxy = httpProxy.createProxyServer({
-        target: `http://localhost:${appPort}`,
+        target: `http://127.0.0.1:${appPort}`,
       })
       proxyPort = await findPort()
 

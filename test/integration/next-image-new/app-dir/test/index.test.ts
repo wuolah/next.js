@@ -29,7 +29,7 @@ async function hasImageMatchingUrl(browser, url) {
   let foundMatch = false
   for (const link of links) {
     const src = await link.getAttribute('src')
-    if (new URL(src, `http://localhost:${appPort}`).toString() === url) {
+    if (new URL(src, `http://127.0.0.1:${appPort}`).toString() === url) {
       foundMatch = true
       break
     }
@@ -61,7 +61,7 @@ async function getComputedStyle(browser, id, prop) {
 async function getSrc(browser, id) {
   const src = await browser.elementById(id).getAttribute('src')
   if (src) {
-    const url = new URL(src, `http://localhost:${appPort}`)
+    const url = new URL(src, `http://127.0.0.1:${appPort}`)
     return url.href.slice(url.origin.length)
   }
 }
@@ -91,7 +91,7 @@ function runTests(mode) {
       expect(
         await hasImageMatchingUrl(
           browser,
-          `http://localhost:${appPort}/_next/image?url=%2Ftest.jpg&w=828&q=75`
+          `http://127.0.0.1:${appPort}/_next/image?url=%2Ftest.jpg&w=828&q=75`
         )
       ).toBe(true)
     } finally {

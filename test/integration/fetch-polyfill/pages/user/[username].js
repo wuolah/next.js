@@ -5,7 +5,7 @@ export default function StaticPage({ data }) {
 const port = process.env.NEXT_PUBLIC_API_PORT
 
 export async function getStaticPaths() {
-  const res = await fetch(`http://localhost:${port}/usernames`)
+  const res = await fetch(`http://127.0.0.1:${port}/usernames`)
   const { usernames } = await res.json()
 
   return {
@@ -22,7 +22,7 @@ export async function getStaticPaths() {
 
 export async function getStaticProps({ params }) {
   const res = await fetch(
-    `http://localhost:${port}/usernames/${params.username}`
+    `http://127.0.0.1:${port}/usernames/${params.username}`
   )
   const json = await res.json()
   return {

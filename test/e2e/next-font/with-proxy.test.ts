@@ -34,7 +34,7 @@ describe('next/font/google with proxy', () => {
         'react-dom': 'latest',
       },
       env: {
-        http_proxy: 'http://localhost:' + PROXY_PORT,
+        http_proxy: 'http://127.0.0.1:' + PROXY_PORT,
       },
     })
   })

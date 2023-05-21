@@ -14,11 +14,11 @@ module.exports = {
         {
           source: '/to-websocket',
           destination:
-            'http://localhost:__EXTERNAL_PORT__/_next/webpack-hmr?page=/about',
+            'http://127.0.0.1:__EXTERNAL_PORT__/_next/webpack-hmr?page=/about',
         },
         {
           source: '/to-nowhere',
-          destination: 'http://localhost:12233',
+          destination: 'http://127.0.0.1:12233',
         },
         {
           source: '/rewriting-to-auto-export',
@@ -86,7 +86,7 @@ module.exports = {
         },
         {
           source: '/proxy-me/:path*',
-          destination: 'http://localhost:__EXTERNAL_PORT__/:path*',
+          destination: 'http://127.0.0.1:__EXTERNAL_PORT__/:path*',
         },
         {
           source: '/api-hello',

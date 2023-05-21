@@ -303,9 +303,9 @@ createNextDescribe(
         ogImageUrlPattern = /https:\/\/mydomain.com\/opengraph-image\?/
         twitterImageUrlPattern = /https:\/\/mydomain.com\/twitter-image\?/
       } else {
-        // localhost for dev
-        ogImageUrlPattern = /http:\/\/localhost:\d+\/opengraph-image\?/
-        twitterImageUrlPattern = /http:\/\/localhost:\d+\/twitter-image\?/
+        // 127.0.0.1 for dev
+        ogImageUrlPattern = /http:\/\/127.0.0.1:\d+\/opengraph-image\?/
+        twitterImageUrlPattern = /http:\/\/127.0.0.1:\d+\/twitter-image\?/
       }
       expect(ogImageUrl).toMatch(ogImageUrlPattern)
       expect(twitterImageUrl).toMatch(twitterImageUrlPattern)
@@ -321,7 +321,7 @@ createNextDescribe(
       )
     })
 
-    it('should use localhost for local prod and fallback to deployment url when metadataBase is falsy', async () => {
+    it('should use 127.0.0.1 for local prod and fallback to deployment url when metadataBase is falsy', async () => {
       const $ = await next.render$('/metadata-base/unset')
       const twitterImage = $('meta[name="twitter:image"]').attr('content')
       const ogImages = $('meta[property="og:image"]')
@@ -332,7 +332,7 @@ createNextDescribe(
         expect(ogImageUrl).toMatch(
           isNextDeploy
             ? /https:\/\/[\w-]+.vercel.app/
-            : /http:\/\/localhost:\d+/
+            : /http:\/\/127.0.0.1:\d+/
         )
         expect(ogImageUrl).toMatch(
           /\/metadata-base\/unset\/opengraph-image2\/10\d/
@@ -340,7 +340,7 @@ createNextDescribe(
       })
 
       expect(twitterImage).toMatch(
-        isNextDeploy ? /https:\/\/[\w-]+.vercel.app/ : /http:\/\/localhost:\d+/
+        isNextDeploy ? /https:\/\/[\w-]+.vercel.app/ : /http:\/\/127.0.0.1:\d+/
       )
       expect(twitterImage).toMatch(/\/metadata-base\/unset\/twitter-image\.png/)
     })

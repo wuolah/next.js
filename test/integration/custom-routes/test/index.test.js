@@ -45,7 +45,7 @@ const runTests = (isDev = false, isTurbo = false) => {
 
     const messages = []
     const ws = await new Promise((resolve, reject) => {
-      let socket = new WebSocket(`ws://localhost:${appPort}/to-websocket`)
+      let socket = new WebSocket(`ws://127.0.0.1:${appPort}/to-websocket`)
       socket.on('message', (data) => {
         messages.push(data.toString())
       })
@@ -832,8 +832,8 @@ const runTests = (isDev = false, isTurbo = false) => {
         },
       },
     ])
-    const nextHost = `localhost:${appPort}`
-    const externalHost = `localhost:${externalServerPort}`
+    const nextHost = `127.0.0.1:${appPort}`
+    const externalHost = `127.0.0.1:${externalServerPort}`
     expect(await res.text()).toContain(`hi ${nextHost} from ${externalHost}`)
   })
 
@@ -2167,12 +2167,12 @@ const runTests = (isDev = false, isTurbo = false) => {
           ],
           afterFiles: [
             {
-              destination: `http://localhost:${externalServerPort}/_next/webpack-hmr?page=/about`,
+              destination: `http://127.0.0.1:${externalServerPort}/_next/webpack-hmr?page=/about`,
               regex: normalizeRegEx('^\\/to-websocket(?:\\/)?$'),
               source: '/to-websocket',
             },
             {
-              destination: 'http://localhost:12233',
+              destination: 'http://127.0.0.1:12233',
               regex: normalizeRegEx('^\\/to-nowhere(?:\\/)?$'),
               source: '/to-nowhere',
             },
@@ -2265,7 +2265,7 @@ const runTests = (isDev = false, isTurbo = false) => {
               source: '/hidden/_next/:path*',
             },
             {
-              destination: `http://localhost:${externalServerPort}/:path*`,
+              destination: `http://127.0.0.1:${externalServerPort}/:path*`,
               regex: normalizeRegEx(
                 '^\\/proxy-me(?:\\/((?:[^\\/]+?)(?:\\/(?:[^\\/]+?))*))?(?:\\/)?$'
               ),

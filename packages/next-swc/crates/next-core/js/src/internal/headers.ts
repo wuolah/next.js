@@ -51,7 +51,7 @@ export function initProxiedHeaders(
   headers: Headers,
   proxiedFor: ServerInfo | null | undefined
 ): Headers {
-  const hostname = proxiedFor?.hostname || 'localhost'
+  const hostname = proxiedFor?.hostname || '127.0.0.1'
   const port = String(proxiedFor?.port || 3000)
   headers['x-forwarded-for'] = proxiedFor?.ip || '::1'
   headers['x-forwarded-host'] = `${hostname}:${port}`

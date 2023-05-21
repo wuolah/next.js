@@ -70,7 +70,7 @@ describe('parseRelativeUrl', () => {
 
   it('should parse relative url on special protocol', () => {
     check(
-      'ionic://localhost/someA/pathB?fooC=barD#hashE',
+      'ionic://127.0.0.1/someA/pathB?fooC=barD#hashE',
       '/someF/pathG?fooH=barI#hashJ',
       {
         pathname: '/someF/pathG',

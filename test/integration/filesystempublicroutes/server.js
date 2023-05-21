@@ -15,7 +15,7 @@ app.prepare().then(() => {
     } else if (/setEmptyAssetPrefix/.test(req.url)) {
       app.setAssetPrefix(null)
     } else {
-      // This is to support multi-zones support in localhost
+      // This is to support multi-zones support in 127.0.0.1
       // and may be in staging deployments
       app.setAssetPrefix('')
     }
@@ -28,6 +28,6 @@ app.prepare().then(() => {
       throw err
     }
 
-    console.log(`> Ready on http://localhost:${port}`)
+    console.log(`> Ready on http://127.0.0.1:${port}`)
   })
 })

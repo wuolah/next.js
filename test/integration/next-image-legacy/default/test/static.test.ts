@@ -80,7 +80,7 @@ const runTests = () => {
     expect(src).toMatch(
       /_next\/image\?url=%2F_next%2Fstatic%2Fmedia%2Ftest-rect(.+)\.jpg&w=828&q=75/
     )
-    const fullSrc = new URL(src, `http://localhost:${appPort}`)
+    const fullSrc = new URL(src, `http://127.0.0.1:${appPort}`)
     const res = await fetch(fullSrc)
     expect(res.status).toBe(200)
   })
@@ -92,7 +92,7 @@ const runTests = () => {
     expect(src).toMatch(
       /_next\/image\?url=%2F_next%2Fstatic%2Fmedia%2Fexif-rotation(.+)\.jpg&w=256&q=75/
     )
-    const fullSrc = new URL(src, `http://localhost:${appPort}`)
+    const fullSrc = new URL(src, `http://127.0.0.1:${appPort}`)
     const res = await fetch(fullSrc)
     expect(res.status).toBe(200)
   })

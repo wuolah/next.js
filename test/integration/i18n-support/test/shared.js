@@ -1238,11 +1238,11 @@ export function runTests(ctx) {
 
   it('should apply trailingSlash redirect correctly', async () => {
     for (const [testPath, path, hostname, query] of [
-      ['/first/', '/first', 'localhost', {}],
-      ['/en/', '/en', 'localhost', {}],
-      ['/en/another/', '/en/another', 'localhost', {}],
-      ['/fr/', '/fr', 'localhost', {}],
-      ['/fr/another/', '/fr/another', 'localhost', {}],
+      ['/first/', '/first', '127.0.0.1', {}],
+      ['/en/', '/en', '127.0.0.1', {}],
+      ['/en/another/', '/en/another', '127.0.0.1', {}],
+      ['/fr/', '/fr', '127.0.0.1', {}],
+      ['/fr/another/', '/fr/another', '127.0.0.1', {}],
     ]) {
       const res = await fetchViaHTTP(ctx.appPort, testPath, undefined, {
         redirect: 'manual',
@@ -1252,7 +1252,7 @@ export function runTests(ctx) {
       const parsed = url.parse(res.headers.get('location'), true)
       expect(parsed.pathname).toBe(path)
 
-      if (hostname === 'localhost') {
+      if (hostname === '127.0.0.1') {
         expect(parsed.hostname).toBeOneOf([hostname, '127.0.0.1'])
       } else {
         expect(parsed.hostname).toBe(hostname)

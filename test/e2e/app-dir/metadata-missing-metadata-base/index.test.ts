@@ -20,13 +20,13 @@ describe('app dir - metadata missing metadataBase', () => {
   })
   afterAll(() => next.destroy())
 
-  it('should fallback to localhost if metadataBase is missing for absolute urls resolving', async () => {
+  it('should fallback to 127.0.0.1 if metadataBase is missing for absolute urls resolving', async () => {
     await next.start()
     await fetchViaHTTP(next.url, '/')
     expect(next.cliOutput).toInclude(
       'metadata.metadataBase is not set for resolving social open graph or twitter images, fallbacks to'
     )
-    expect(next.cliOutput).toInclude(`"http://localhost:${port}`)
+    expect(next.cliOutput).toInclude(`"http://127.0.0.1:${port}`)
     expect(next.cliOutput).toInclude(
       '. See https://nextjs.org/docs/app/api-reference/functions/generate-metadata#metadatabase'
     )

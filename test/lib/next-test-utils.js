@@ -93,7 +93,7 @@ export function getFullUrl(appPortOrUrl, url, hostname) {
   let fullUrl =
     typeof appPortOrUrl === 'string' && appPortOrUrl.startsWith('http')
       ? appPortOrUrl
-      : `http://${hostname ? hostname : 'localhost'}:${appPortOrUrl}${url}`
+      : `http://${hostname ? hostname : '127.0.0.1'}:${appPortOrUrl}${url}`
 
   if (typeof appPortOrUrl === 'string' && url) {
     const parsedUrl = new URL(fullUrl)
@@ -103,7 +103,7 @@ export function getFullUrl(appPortOrUrl, url, hostname) {
     parsedUrl.search = parsedPathQuery.search
     parsedUrl.pathname = parsedPathQuery.pathname
 
-    if (hostname && parsedUrl.hostname === 'localhost') {
+    if (hostname && parsedUrl.hostname === '127.0.0.1') {
       parsedUrl.hostname = hostname
     }
     fullUrl = parsedUrl.toString()
@@ -159,7 +159,7 @@ export function renderViaHTTP(appPort, pathname, query, opts) {
 export function fetchViaHTTP(appPort, pathname, query, opts) {
   const url = query ? withQuery(pathname, query) : pathname
   const fullUrl = getFullUrl(appPort, url)
-  return fetch(fullUrl.replace(/localhost/g, '127.0.0.1'), {
+  return fetch(fullUrl.replace(/127.0.0.1/g, '127.0.0.1'), {
     ...opts,
     headers: {
       host: new URL(fullUrl).host,

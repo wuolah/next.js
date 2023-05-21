@@ -292,7 +292,7 @@ describe.each([
       const path = '/middleware-augmented'
       const response = await fetchViaHTTP(nextUrl, path, undefined, { agent })
       expect(response.headers.get('x-original-url')).toBe(
-        `${useHttps ? 'https' : 'http'}://localhost:${appPort}${path}`
+        `${useHttps ? 'https' : 'http'}://127.0.0.1:${appPort}${path}`
       )
     })
   })

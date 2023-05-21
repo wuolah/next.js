@@ -1,3 +1,3 @@
 module.exports = {
-  assetPrefix: 'http://localhost:__CDN_PORT__/path-prefix',
+  assetPrefix: 'http://127.0.0.1:__CDN_PORT__/path-prefix',
 }

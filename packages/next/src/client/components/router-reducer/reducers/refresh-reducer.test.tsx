@@ -125,7 +125,7 @@ describe('refreshReducer', () => {
       children,
       initialParallelRoutes,
       isServer: false,
-      location: new URL('/linking', 'https://localhost') as any,
+      location: new URL('/linking', 'https://127.0.0.1') as any,
     })
     const action: RefreshAction = {
       type: ACTION_REFRESH,
@@ -136,7 +136,7 @@ describe('refreshReducer', () => {
         parallelRoutes: new Map(),
       },
       mutable: {},
-      origin: new URL('/linking', 'https://localhost').origin,
+      origin: new URL('/linking', 'https://127.0.0.1').origin,
     }
 
     const newState = await runPromiseThrowChain(() =>
@@ -271,7 +271,7 @@ describe('refreshReducer', () => {
       children,
       initialParallelRoutes,
       isServer: false,
-      location: new URL('/linking', 'https://localhost') as any,
+      location: new URL('/linking', 'https://127.0.0.1') as any,
     })
 
     const state2 = createInitialRouterState({
@@ -281,7 +281,7 @@ describe('refreshReducer', () => {
       children,
       initialParallelRoutes,
       isServer: false,
-      location: new URL('/linking', 'https://localhost') as any,
+      location: new URL('/linking', 'https://127.0.0.1') as any,
     })
 
     const action: RefreshAction = {
@@ -293,7 +293,7 @@ describe('refreshReducer', () => {
         parallelRoutes: new Map(),
       },
       mutable: {},
-      origin: new URL('/linking', 'https://localhost').origin,
+      origin: new URL('/linking', 'https://127.0.0.1').origin,
     }
 
     await runPromiseThrowChain(() => refreshReducer(state, action))
@@ -454,7 +454,7 @@ describe('refreshReducer', () => {
       children,
       initialParallelRoutes,
       isServer: false,
-      location: new URL('/linking', 'https://localhost') as any,
+      location: new URL('/linking', 'https://127.0.0.1') as any,
     })
 
     const state2 = createInitialRouterState({
@@ -464,7 +464,7 @@ describe('refreshReducer', () => {
       children,
       initialParallelRoutes,
       isServer: false,
-      location: new URL('/linking', 'https://localhost') as any,
+      location: new URL('/linking', 'https://127.0.0.1') as any,
     })
 
     const action: RefreshAction = {
@@ -476,7 +476,7 @@ describe('refreshReducer', () => {
         parallelRoutes: new Map(),
       },
       mutable: {},
-      origin: new URL('/linking', 'https://localhost').origin,
+      origin: new URL('/linking', 'https://127.0.0.1').origin,
     }
 
     await runPromiseThrowChain(() => refreshReducer(state, action))
@@ -683,7 +683,7 @@ describe('refreshReducer', () => {
       children,
       initialParallelRoutes,
       isServer: false,
-      location: new URL('/linking', 'https://localhost') as any,
+      location: new URL('/linking', 'https://127.0.0.1') as any,
     })
 
     state.prefetchCache.set('/linking/about', prefetchItem)
@@ -695,7 +695,7 @@ describe('refreshReducer', () => {
       children,
       initialParallelRoutes,
       isServer: false,
-      location: new URL('/linking', 'https://localhost') as any,
+      location: new URL('/linking', 'https://127.0.0.1') as any,
     })
     state2.prefetchCache.set('/linking/about', prefetchItem)
 
@@ -708,7 +708,7 @@ describe('refreshReducer', () => {
         parallelRoutes: new Map(),
       },
       mutable: {},
-      origin: new URL('/linking', 'https://localhost').origin,
+      origin: new URL('/linking', 'https://127.0.0.1').origin,
     }
 
     await runPromiseThrowChain(() => refreshReducer(state, action))

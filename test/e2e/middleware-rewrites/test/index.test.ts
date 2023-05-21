@@ -768,7 +768,7 @@ describe('Middleware Rewrite', () => {
     })
 
     if (!(global as any).isNextDeploy) {
-      it(`${label}should rewrite when not using localhost`, async () => {
+      it(`${label}should rewrite when not using 127.0.0.1`, async () => {
         const customUrl = new URL(next.url)
         customUrl.hostname = 'localtest.me'
 

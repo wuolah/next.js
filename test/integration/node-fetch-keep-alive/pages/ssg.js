@@ -3,7 +3,7 @@ export default function SSG(props) {
 }
 
 export async function getStaticProps() {
-  const res = await fetch('http://localhost:44001')
+  const res = await fetch('http://127.0.0.1:44001')
   const props = await res.json()
   return { props }
 }

@@ -28,7 +28,7 @@ describe('react-virtualized wrapping next/image', () => {
       appPort = await findPort()
 
       const proxy = httpProxy.createProxyServer({
-        target: `http://localhost:${port}`,
+        target: `http://127.0.0.1:${port}`,
       })
 
       proxyServer = http.createServer(async (req, res) => {

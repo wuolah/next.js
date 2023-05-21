@@ -124,7 +124,11 @@ export class NextStartInstance extends NextInstance {
         const readyCb = (msg) => {
           if (msg.includes('started server on') && msg.includes('url:')) {
             this._url = msg.split('url: ').pop().split(/\s/)[0].trim()
+            this._url = this._url.replace(/localhost/g, '127.0.0.1')
             this._parsedUrl = new URL(this._url)
+            if (this._parsedUrl.hostname === 'localhost') {
+              this._parsedUrl.hostname = '127.0.0.1'
+            }
             this.off('stdout', readyCb)
             resolve()
           }

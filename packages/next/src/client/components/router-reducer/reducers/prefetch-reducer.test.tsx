@@ -124,10 +124,10 @@ describe('prefetchReducer', () => {
       children,
       initialParallelRoutes,
       isServer: false,
-      location: new URL('/linking', 'https://localhost') as any,
+      location: new URL('/linking', 'https://127.0.0.1') as any,
     })
 
-    const url = new URL('/linking/about', 'https://localhost')
+    const url = new URL('/linking/about', 'https://127.0.0.1')
     const serverResponse = await fetchServerResponse(
       url,
       initialTree,
@@ -263,7 +263,7 @@ describe('prefetchReducer', () => {
       children,
       initialParallelRoutes,
       isServer: false,
-      location: new URL('/linking', 'https://localhost') as any,
+      location: new URL('/linking', 'https://127.0.0.1') as any,
     })
 
     const state2 = createInitialRouterState({
@@ -273,10 +273,10 @@ describe('prefetchReducer', () => {
       children,
       initialParallelRoutes,
       isServer: false,
-      location: new URL('/linking', 'https://localhost') as any,
+      location: new URL('/linking', 'https://127.0.0.1') as any,
     })
 
-    const url = new URL('/linking/about', 'https://localhost')
+    const url = new URL('/linking/about', 'https://127.0.0.1')
     const serverResponse = await fetchServerResponse(
       url,
       initialTree,

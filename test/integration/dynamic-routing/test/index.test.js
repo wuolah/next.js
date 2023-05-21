@@ -36,7 +36,7 @@ function runTests({ dev }) {
       const getCacheKeys = async () => {
         return (await browser.eval('Object.keys(window.next.router.sdc)'))
           .map((key) => {
-            // strip http://localhost:PORT
+            // strip http://127.0.0.1:PORT
             // and then strip buildId prefix
             return key
               .substring(key.indexOf('/_next'))

@@ -132,7 +132,7 @@ export async function makeResolver(
   const devServer = new TurbopackDevServerProxy({
     dir,
     conf: nextConfig,
-    hostname: serverAddr.hostname || 'localhost',
+    hostname: serverAddr.hostname || '127.0.0.1',
     port: serverAddr.port || 3000,
   })
 

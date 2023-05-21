@@ -82,7 +82,7 @@ describe('minimal-mode-response-cache', () => {
 
   it('should have correct "Listening on" log', async () => {
     expect(output).toContain(`Listening on port`)
-    expect(output).toContain(`url: http://localhost:${appPort}`)
+    expect(output).toContain(`url: http://127.0.0.1:${appPort}`)
   })
 
   it('should have correct responses', async () => {

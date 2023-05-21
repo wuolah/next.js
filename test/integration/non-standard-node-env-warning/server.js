@@ -18,6 +18,6 @@ app.prepare().then(() => {
       throw err
     }
 
-    console.log(`> Ready on http://localhost:${port}`)
+    console.log(`> Ready on http://127.0.0.1:${port}`)
   })
 })

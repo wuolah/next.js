@@ -116,7 +116,7 @@ function fetchIPv4v6(
 ): Promise<Response> {
   const hostname = url.hostname
 
-  if (!v6 && hostname === 'localhost') {
+  if (!v6 && hostname === '127.0.0.1') {
     url.hostname = '127.0.0.1'
   }
   return fetch(url, init).catch((err) => {
@@ -313,7 +313,7 @@ export async function handleAction({
               // React doesn't yet publish a busboy version of decodeAction
               // so we polyfill the parsing of FormData.
               const UndiciRequest = require('next/dist/compiled/undici').Request
-              const fakeRequest = new UndiciRequest('http://localhost', {
+              const fakeRequest = new UndiciRequest('http://127.0.0.1', {
                 method: 'POST',
                 headers: { 'Content-Type': req.headers['content-type'] },
                 body: nodeToWebReadableStream(req),

@@ -2,7 +2,7 @@ const { createServer } = require('http')
 const { parse } = require('url')
 const next = require('next')
 
-const hostname = 'localhost'
+const hostname = '127.0.0.1'
 const port = 3000
 // when using middleware `hostname` and `port` must be provided below
 const app = next({ hostname, port })

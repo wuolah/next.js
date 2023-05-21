@@ -54,7 +54,7 @@ describe('On Demand Entries', () => {
 
     await new Promise((resolve, reject) => {
       context.ws = new WebSocket(
-        `ws://localhost:${context.appPort}${
+        `ws://127.0.0.1:${context.appPort}${
           assetPrefix ? `/${assetPrefix}` : ''
         }/_next/webpack-hmr`
       )

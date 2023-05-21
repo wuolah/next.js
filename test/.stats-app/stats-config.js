@@ -110,14 +110,14 @@ module.exports = {
       filesToTrack: clientGlobs,
       // will be output to fetched-pages/${pathname}.html
       pagesToFetch: [
-        'http://localhost:$PORT/',
-        'http://localhost:$PORT/link',
-        'http://localhost:$PORT/withRouter',
+        'http://127.0.0.1:$PORT/',
+        'http://127.0.0.1:$PORT/link',
+        'http://127.0.0.1:$PORT/withRouter',
       ],
       // TODO: investigate replacing "ab" for this
       // pagesToBench: [
-      //   'http://localhost:$PORT/',
-      //   'http://localhost:$PORT/error-in-render',
+      //   'http://127.0.0.1:$PORT/',
+      //   'http://127.0.0.1:$PORT/error-in-render',
       // ],
       // benchOptions: {
       //   reqTimeout: 60,

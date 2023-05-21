@@ -1,4 +1,4 @@
-const destination = 'http://localhost:__EXTERNAL_PORT__'
+const destination = 'http://127.0.0.1:__EXTERNAL_PORT__'
 
 module.exports = {
   i18n: {

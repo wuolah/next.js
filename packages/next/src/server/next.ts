@@ -309,7 +309,7 @@ function createServer(options: NextServerOptions): NextServer {
                       port: options.port || 3000,
                       dev: options.dev,
                       dir,
-                      hostname: options.hostname || 'localhost',
+                      hostname: options.hostname || '127.0.0.1',
                       minimalMode: false,
                     })
                 } else {

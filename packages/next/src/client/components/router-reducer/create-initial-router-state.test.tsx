@@ -36,7 +36,7 @@ describe('createInitialRouterState', () => {
       children,
       initialParallelRoutes,
       isServer: false,
-      location: new URL('/linking', 'https://localhost') as any,
+      location: new URL('/linking', 'https://127.0.0.1') as any,
       initialHead: <title>Test</title>,
     })
 
@@ -46,7 +46,7 @@ describe('createInitialRouterState', () => {
       children,
       initialParallelRoutes,
       isServer: false,
-      location: new URL('/linking', 'https://localhost') as any,
+      location: new URL('/linking', 'https://127.0.0.1') as any,
       initialHead: <title>Test</title>,
     })
 

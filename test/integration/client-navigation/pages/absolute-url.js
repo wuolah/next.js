@@ -34,32 +34,32 @@ export default function Page({ port }) {
       </button>
       <br />
       <Link
-        href={`http://localhost:${port}/nav/about`}
+        href={`http://127.0.0.1:${port}/nav/about`}
         id="absolute-local-link"
       >
-        http://localhost:{port}/nav/about
+        http://127.0.0.1:{port}/nav/about
       </Link>
       <br />
       <Link
-        href={`http://localhost:${port}/dynamic/[slug]/route`}
-        as={`http://localhost:${port}/dynamic/hello/route`}
+        href={`http://127.0.0.1:${port}/dynamic/[slug]/route`}
+        as={`http://127.0.0.1:${port}/dynamic/hello/route`}
         id="absolute-local-dynamic-link"
       >
-        http://localhost:{port}/dynamic/hello/route
+        http://127.0.0.1:{port}/dynamic/hello/route
       </Link>
       <br />
       <button
         id="router-local-push"
-        onClick={() => router.push(`http://localhost:${port}/nav/about`)}
+        onClick={() => router.push(`http://127.0.0.1:${port}/nav/about`)}
       >
-        push http://localhost:{port}/nav/about
+        push http://127.0.0.1:{port}/nav/about
       </button>
       <br />
       <button
         id="router-local-replace"
-        onClick={() => router.replace(`http://localhost:${port}/nav/about`)}
+        onClick={() => router.replace(`http://127.0.0.1:${port}/nav/about`)}
       >
-        replace http://localhost:{port}/nav/about
+        replace http://127.0.0.1:{port}/nav/about
       </button>
       <br />
       <Link href="mailto:idk@idk.com" id="mailto-link">

@@ -105,7 +105,7 @@ export async function initialize(opts: {
 
         let hostname =
           !opts.hostname || opts.hostname === '0.0.0.0'
-            ? 'localhost'
+            ? '127.0.0.1'
             : opts.hostname
 
         if (isIPv6(hostname)) {

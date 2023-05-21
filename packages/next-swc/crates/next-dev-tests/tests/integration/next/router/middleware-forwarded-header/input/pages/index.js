@@ -12,7 +12,7 @@ function runTests() {
     const json = await res.json()
 
     const { host, port, proto } = json
-    expect(host).toBe(`localhost:${port}`)
+    expect(host).toBe(`127.0.0.1:${port}`)
     expect(port).toMatch(/\d+/)
     expect(proto).toBe('http')
   })

@@ -24,7 +24,7 @@ async function hasImageMatchingUrl(browser, url) {
   let foundMatch = false
   for (const link of links) {
     const src = await link.getAttribute('src')
-    if (new URL(src, `http://localhost:${appPort}`).toString() === url) {
+    if (new URL(src, `http://127.0.0.1:${appPort}`).toString() === url) {
       foundMatch = true
       break
     }
@@ -72,7 +72,7 @@ function runTests(mode) {
       expect(
         await hasImageMatchingUrl(
           browser,
-          `http://localhost:${appPort}/docs/_next/image?url=%2Fdocs%2Ftest.jpg&w=828&q=75`
+          `http://127.0.0.1:${appPort}/docs/_next/image?url=%2Fdocs%2Ftest.jpg&w=828&q=75`
         )
       ).toBe(true)
     } finally {

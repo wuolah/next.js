@@ -113,7 +113,7 @@ export function makeRequest(
     initProxiedHeaders(headers, proxiedFor)
 
     clientRequest = http.request({
-      host: 'localhost',
+      host: '127.0.0.1',
       port: address.port,
       method,
       path:

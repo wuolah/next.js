@@ -9,7 +9,7 @@ module.exports = {
       },
       {
         source: '/:path*/',
-        destination: 'http://localhost:__EXTERNAL_PORT__/:path*',
+        destination: 'http://127.0.0.1:__EXTERNAL_PORT__/:path*',
       },
     ]
   },

@@ -14,10 +14,10 @@ export default function Page({ port }) {
   return (
     <>
       <Link
-        href={`http://localhost:${port}${router.basePath}/something-else`}
+        href={`http://127.0.0.1:${port}${router.basePath}/something-else`}
         id="absolute-link"
       >
-        http://localhost:{port}
+        http://127.0.0.1:{port}
         {router.basePath}/something-else
       </Link>
     </>

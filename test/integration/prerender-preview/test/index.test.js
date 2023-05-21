@@ -326,7 +326,7 @@ describe('Prerender Preview Mode', () => {
     })
 
     it('should fetch preview data on SSR', async () => {
-      await browser.get(`http://localhost:${appPort}/`)
+      await browser.get(`http://127.0.0.1:${appPort}/`)
       await browser.waitForElementByCss('#props-pre')
       // expect(await browser.elementById('props-pre').text()).toBe('Has No Props')
       // await new Promise(resolve => setTimeout(resolve, 2000))
@@ -336,7 +336,7 @@ describe('Prerender Preview Mode', () => {
     })
 
     it('should fetch preview data on CST', async () => {
-      await browser.get(`http://localhost:${appPort}/to-index`)
+      await browser.get(`http://127.0.0.1:${appPort}/to-index`)
       await browser.waitForElementByCss('#to-index')
       await browser.eval('window.itdidnotrefresh = "hello"')
       await browser.elementById('to-index').click()
@@ -348,9 +348,9 @@ describe('Prerender Preview Mode', () => {
     })
 
     it('should fetch prerendered data', async () => {
-      await browser.get(`http://localhost:${appPort}/api/reset`)
+      await browser.get(`http://127.0.0.1:${appPort}/api/reset`)
 
-      await browser.get(`http://localhost:${appPort}/`)
+      await browser.get(`http://127.0.0.1:${appPort}/`)
       await browser.waitForElementByCss('#props-pre')
       expect(await browser.elementById('props-pre').text()).toBe(
         'false and null'
@@ -358,7 +358,7 @@ describe('Prerender Preview Mode', () => {
     })
 
     it('should fetch live static props with preview active', async () => {
-      await browser.get(`http://localhost:${appPort}/`)
+      await browser.get(`http://127.0.0.1:${appPort}/`)
 
       await browser.waitForElementByCss('#ssg-random')
       const initialRandom = await browser.elementById('ssg-random').text()

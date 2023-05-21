@@ -6,7 +6,7 @@ function isStringOrURL(icon: any): icon is string | URL {
 }
 
 function createLocalMetadataBase() {
-  return new URL(`http://localhost:${process.env.PORT || 3000}`)
+  return new URL(`http://127.0.0.1:${process.env.PORT || 3000}`)
 }
 
 // For deployment url for metadata routes, prefer to use the deployment url if possible

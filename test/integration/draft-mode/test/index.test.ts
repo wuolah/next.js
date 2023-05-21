@@ -86,13 +86,13 @@ describe('Test Draft Mode', () => {
     })
 
     it('should fetch draft data on SSR', async () => {
-      await browser.get(`http://localhost:${appPort}/`)
+      await browser.get(`http://127.0.0.1:${appPort}/`)
       await browser.waitForElementByCss('#draft')
       expect(await browser.elementById('draft').text()).toBe('true')
     })
 
     it('should fetch draft data on CST', async () => {
-      await browser.get(`http://localhost:${appPort}/to-index`)
+      await browser.get(`http://127.0.0.1:${appPort}/to-index`)
       await browser.waitForElementByCss('#to-index')
       await browser.eval('window.itdidnotrefresh = "yep"')
       await browser.elementById('to-index').click()
@@ -102,9 +102,9 @@ describe('Test Draft Mode', () => {
     })
 
     it('should disable draft mode', async () => {
-      await browser.get(`http://localhost:${appPort}/api/disable`)
+      await browser.get(`http://127.0.0.1:${appPort}/api/disable`)
 
-      await browser.get(`http://localhost:${appPort}/`)
+      await browser.get(`http://127.0.0.1:${appPort}/`)
       await browser.waitForElementByCss('#draft')
       expect(await browser.elementById('draft').text()).toBe('false')
     })

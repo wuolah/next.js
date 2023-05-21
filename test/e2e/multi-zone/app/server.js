@@ -42,7 +42,7 @@ const http = require('http')
   server.listen(port, () => {
     const actualPort = server.address().port
     console.log(
-      `> started server on url: http://localhost:${actualPort} as ${
+      `> started server on url: http://127.0.0.1:${actualPort} as ${
         dev ? 'development' : process.env.NODE_ENV
       }`
     )

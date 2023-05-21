@@ -163,11 +163,11 @@ describe('navigateReducer', () => {
       children,
       initialParallelRoutes,
       isServer: false,
-      location: new URL('/linking', 'https://localhost') as any,
+      location: new URL('/linking', 'https://127.0.0.1') as any,
     })
     const action: NavigateAction = {
       type: ACTION_NAVIGATE,
-      url: new URL('/linking/about', 'https://localhost'),
+      url: new URL('/linking/about', 'https://127.0.0.1'),
       isExternalUrl: false,
       locationSearch: '',
       navigateType: 'push',
@@ -337,7 +337,7 @@ describe('navigateReducer', () => {
       children,
       initialParallelRoutes,
       isServer: false,
-      location: new URL('/linking', 'https://localhost') as any,
+      location: new URL('/linking', 'https://127.0.0.1') as any,
     })
 
     const state2 = createInitialRouterState({
@@ -347,12 +347,12 @@ describe('navigateReducer', () => {
       children,
       initialParallelRoutes,
       isServer: false,
-      location: new URL('/linking', 'https://localhost') as any,
+      location: new URL('/linking', 'https://127.0.0.1') as any,
     })
 
     const action: NavigateAction = {
       type: ACTION_NAVIGATE,
-      url: new URL('/linking/about', 'https://localhost'),
+      url: new URL('/linking/about', 'https://127.0.0.1'),
       isExternalUrl: false,
       locationSearch: '',
       navigateType: 'push',
@@ -524,7 +524,7 @@ describe('navigateReducer', () => {
       children,
       initialParallelRoutes,
       isServer: false,
-      location: new URL('/linking', 'https://localhost') as any,
+      location: new URL('/linking', 'https://127.0.0.1') as any,
     })
 
     const state2 = createInitialRouterState({
@@ -534,11 +534,11 @@ describe('navigateReducer', () => {
       children,
       initialParallelRoutes,
       isServer: false,
-      location: new URL('/linking', 'https://localhost') as any,
+      location: new URL('/linking', 'https://127.0.0.1') as any,
     })
 
-    const url = new URL('https://example.vercel.sh', 'https://localhost')
-    const isExternalUrl = url.origin !== 'localhost'
+    const url = new URL('https://example.vercel.sh', 'https://127.0.0.1')
+    const isExternalUrl = url.origin !== '127.0.0.1'
 
     const action: NavigateAction = {
       type: ACTION_NAVIGATE,
@@ -683,7 +683,7 @@ describe('navigateReducer', () => {
       children,
       initialParallelRoutes,
       isServer: false,
-      location: new URL('/linking', 'https://localhost') as any,
+      location: new URL('/linking', 'https://127.0.0.1') as any,
     })
 
     const state2 = createInitialRouterState({
@@ -693,11 +693,11 @@ describe('navigateReducer', () => {
       children,
       initialParallelRoutes,
       isServer: false,
-      location: new URL('/linking', 'https://localhost') as any,
+      location: new URL('/linking', 'https://127.0.0.1') as any,
     })
 
-    const url = new URL('https://example.vercel.sh', 'https://localhost')
-    const isExternalUrl = url.origin !== 'localhost'
+    const url = new URL('https://example.vercel.sh', 'https://127.0.0.1')
+    const isExternalUrl = url.origin !== '127.0.0.1'
 
     const action: NavigateAction = {
       type: ACTION_NAVIGATE,
@@ -842,7 +842,7 @@ describe('navigateReducer', () => {
       children,
       initialParallelRoutes,
       isServer: false,
-      location: new URL('/linking', 'https://localhost') as any,
+      location: new URL('/linking', 'https://127.0.0.1') as any,
     })
 
     const state2 = createInitialRouterState({
@@ -852,12 +852,12 @@ describe('navigateReducer', () => {
       children,
       initialParallelRoutes,
       isServer: false,
-      location: new URL('/linking', 'https://localhost') as any,
+      location: new URL('/linking', 'https://127.0.0.1') as any,
     })
 
     const action: NavigateAction = {
       type: ACTION_NAVIGATE,
-      url: new URL('/linking/about', 'https://localhost'),
+      url: new URL('/linking/about', 'https://127.0.0.1'),
       isExternalUrl: false,
       locationSearch: '',
       navigateType: 'push',
@@ -1002,7 +1002,7 @@ describe('navigateReducer', () => {
       ],
     ])
 
-    const url = new URL('/linking/about', 'https://localhost')
+    const url = new URL('/linking/about', 'https://127.0.0.1')
     const prefetchAction: PrefetchAction = {
       type: ACTION_PREFETCH,
       url,
@@ -1016,7 +1016,7 @@ describe('navigateReducer', () => {
       children,
       initialParallelRoutes,
       isServer: false,
-      location: new URL('/linking', 'https://localhost') as any,
+      location: new URL('/linking', 'https://127.0.0.1') as any,
     })
 
     await runPromiseThrowChain(() => prefetchReducer(state, prefetchAction))
@@ -1030,7 +1030,7 @@ describe('navigateReducer', () => {
       children,
       initialParallelRoutes,
       isServer: false,
-      location: new URL('/linking', 'https://localhost') as any,
+      location: new URL('/linking', 'https://127.0.0.1') as any,
     })
 
     await runPromiseThrowChain(() => prefetchReducer(state2, prefetchAction))
@@ -1038,7 +1038,7 @@ describe('navigateReducer', () => {
 
     const action: NavigateAction = {
       type: ACTION_NAVIGATE,
-      url: new URL('/linking/about', 'https://localhost'),
+      url: new URL('/linking/about', 'https://127.0.0.1'),
       isExternalUrl: false,
       navigateType: 'push',
       locationSearch: '',
@@ -1302,7 +1302,7 @@ describe('navigateReducer', () => {
       children,
       initialParallelRoutes,
       isServer: false,
-      location: new URL('/parallel-tab-bar', 'https://localhost') as any,
+      location: new URL('/parallel-tab-bar', 'https://127.0.0.1') as any,
     })
 
     const state2 = createInitialRouterState({
@@ -1312,12 +1312,12 @@ describe('navigateReducer', () => {
       children,
       initialParallelRoutes,
       isServer: false,
-      location: new URL('/parallel-tab-bar', 'https://localhost') as any,
+      location: new URL('/parallel-tab-bar', 'https://127.0.0.1') as any,
     })
 
     const action: NavigateAction = {
       type: ACTION_NAVIGATE,
-      url: new URL('/parallel-tab-bar/demographics', 'https://localhost'),
+      url: new URL('/parallel-tab-bar/demographics', 'https://127.0.0.1'),
       isExternalUrl: false,
       locationSearch: '',
       navigateType: 'push',

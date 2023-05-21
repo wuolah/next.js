@@ -10,7 +10,7 @@ describe('with minimumCacheTTL of 5 sec', () => {
       // Configure external domains so we can try out
       // variations of the upstream Cache-Control header.
       domains: [
-        'localhost',
+        '127.0.0.1',
         '127.0.0.1',
         'example.com',
         'assets.vercel.com',

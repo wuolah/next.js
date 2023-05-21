@@ -159,7 +159,7 @@ describe('AMP Usage', () => {
         const html = await renderViaHTTP(appPort, '/use-amp-hook')
         const $ = cheerio.load(html)
         expect($('link[rel=amphtml]').first().attr('href')).toBe(
-          'http://localhost:1234/use-amp-hook.amp'
+          'http://127.0.0.1:1234/use-amp-hook.amp'
         )
       })
 
@@ -178,7 +178,7 @@ describe('AMP Usage', () => {
         const $ = cheerio.load(html)
         await validateAMP(html)
         expect($('link[rel=canonical]').first().attr('href')).toBe(
-          'http://localhost:1234/use-amp-hook'
+          'http://127.0.0.1:1234/use-amp-hook'
         )
       })
 
@@ -187,7 +187,7 @@ describe('AMP Usage', () => {
         const $ = cheerio.load(html)
         await validateAMP(html)
         expect($('link[rel=canonical]').first().attr('href')).toBe(
-          'http://localhost:1234/only-amp'
+          'http://127.0.0.1:1234/only-amp'
         )
       })
 

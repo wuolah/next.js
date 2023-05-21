@@ -24,7 +24,7 @@ const sharpOutdatedText = `Your installed version of the 'sharp' package does no
 export async function serveSlowImage() {
   const port = await findPort()
   const server = http.createServer(async (req, res) => {
-    const parsedUrl = new URL(req.url, 'http://localhost')
+    const parsedUrl = new URL(req.url, 'http://127.0.0.1')
     const delay = Number(parsedUrl.searchParams.get('delay')) || 500
     const status = Number(parsedUrl.searchParams.get('status')) || 200
 
@@ -149,7 +149,7 @@ export function runTests(ctx) {
 
   if (domains.length > 0) {
     it('should normalize invalid status codes', async () => {
-      const url = `http://localhost:${
+      const url = `http://127.0.0.1:${
         slowImageServer.port
       }/slow.png?delay=${1}&status=308`
       const query = { url, w: ctx.w, q: 39 }
@@ -669,8 +669,8 @@ export function runTests(ctx) {
   }
 
   if (domains.length > 0) {
-    it('should resize absolute url from localhost', async () => {
-      const url = `http://localhost:${ctx.appPort}/test.png`
+    it('should resize absolute url from 127.0.0.1', async () => {
+      const url = `http://127.0.0.1:${ctx.appPort}/test.png`
       const query = { url, w: ctx.w, q: 80 }
       const opts = { headers: { accept: 'image/webp' } }
       const res = await fetchViaHTTP(ctx.appPort, '/_next/image', query, opts)
@@ -714,7 +714,7 @@ export function runTests(ctx) {
       await cleanImagesDir(ctx)
       const delay = 500
 
-      const url = `http://localhost:${slowImageServer.port}/slow.png?delay=${delay}`
+      const url = `http://127.0.0.1:${slowImageServer.port}/slow.png?delay=${delay}`
       const query = { url, w: ctx.w, q: 39 }
       const opts = { headers: { accept: 'image/webp' } }
 
@@ -819,7 +819,7 @@ export function runTests(ctx) {
   }
 
   it('should fail when url has file protocol', async () => {
-    const url = `file://localhost:${ctx.appPort}/test.png`
+    const url = `file://127.0.0.1:${ctx.appPort}/test.png`
     const query = { url, w: ctx.w, q: 80 }
     const opts = { headers: { accept: 'image/webp' } }
     const res = await fetchViaHTTP(ctx.appPort, '/_next/image', query, opts)
@@ -828,7 +828,7 @@ export function runTests(ctx) {
   })
 
   it('should fail when url has ftp protocol', async () => {
-    const url = `ftp://localhost:${ctx.appPort}/test.png`
+    const url = `ftp://127.0.0.1:${ctx.appPort}/test.png`
     const query = { url, w: ctx.w, q: 80 }
     const opts = { headers: { accept: 'image/webp' } }
     const res = await fetchViaHTTP(ctx.appPort, '/_next/image', query, opts)
@@ -849,7 +849,7 @@ export function runTests(ctx) {
 
   if (domains.length > 0) {
     it('should fail when url fails to load an image', async () => {
-      const url = `http://localhost:${ctx.appPort}/not-an-image`
+      const url = `http://127.0.0.1:${ctx.appPort}/not-an-image`
       const query = { w: ctx.w, url, q: 100 }
       const res = await fetchViaHTTP(ctx.appPort, '/_next/image', query, {})
       expect(res.status).toBe(404)
@@ -1209,7 +1209,7 @@ export function runTests(ctx) {
       await cleanImagesDir(ctx)
       const delay = 500
       const query = {
-        url: `http://localhost:${slowImageServer.port}/slow.png?delay=${delay}`,
+        url: `http://127.0.0.1:${slowImageServer.port}/slow.png?delay=${delay}`,
         w: ctx.w,
         q: 80,
       }
@@ -1330,7 +1330,7 @@ export const setupTests = (ctx) => {
         isDev: true,
         nextConfigImages: {
           domains: [
-            'localhost',
+            '127.0.0.1',
             '127.0.0.1',
             'example.com',
             'assets.vercel.com',
@@ -1414,7 +1414,7 @@ export const setupTests = (ctx) => {
       isDev: false,
       nextConfigImages: {
         domains: [
-          'localhost',
+          '127.0.0.1',
           '127.0.0.1',
           'example.com',
           'assets.vercel.com',

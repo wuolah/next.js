@@ -12,10 +12,10 @@ export default function Page({ port }) {
   return (
     <>
       <Link
-        href={`http://localhost:${port}/rewrite-no-basepath`}
+        href={`http://127.0.0.1:${port}/rewrite-no-basepath`}
         id="absolute-link"
       >
-        http://localhost:{port}/rewrite-no-basepath
+        http://127.0.0.1:{port}/rewrite-no-basepath
       </Link>
     </>
   )

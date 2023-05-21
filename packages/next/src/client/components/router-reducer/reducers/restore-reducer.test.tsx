@@ -85,11 +85,11 @@ describe('serverPatchReducer', () => {
       children,
       initialParallelRoutes,
       isServer: false,
-      location: new URL('/linking', 'https://localhost') as any,
+      location: new URL('/linking', 'https://127.0.0.1') as any,
     })
     const action: RestoreAction = {
       type: ACTION_RESTORE,
-      url: new URL('/linking/about', 'https://localhost'),
+      url: new URL('/linking/about', 'https://127.0.0.1'),
       tree: [
         '',
         {
@@ -236,7 +236,7 @@ describe('serverPatchReducer', () => {
       children,
       initialParallelRoutes,
       isServer: false,
-      location: new URL('/linking', 'https://localhost') as any,
+      location: new URL('/linking', 'https://127.0.0.1') as any,
     })
     const state2 = createInitialRouterState({
       initialTree,
@@ -245,12 +245,12 @@ describe('serverPatchReducer', () => {
       children,
       initialParallelRoutes,
       isServer: false,
-      location: new URL('/linking', 'https://localhost') as any,
+      location: new URL('/linking', 'https://127.0.0.1') as any,
     })
 
     const action: RestoreAction = {
       type: ACTION_RESTORE,
-      url: new URL('/linking/about', 'https://localhost'),
+      url: new URL('/linking/about', 'https://127.0.0.1'),
       tree: [
         '',
         {

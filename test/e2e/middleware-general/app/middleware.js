@@ -160,7 +160,7 @@ export async function middleware(request) {
   if (url.pathname.endsWith('/fetch-url')) {
     const response = {}
     try {
-      await fetch(new URL('http://localhost'))
+      await fetch(new URL('http://127.0.0.1'))
     } catch (err) {
       response.error = {
         name: err.name,
@@ -275,5 +275,5 @@ function serializeError(error) {
 }
 
 function withLocalIp(url) {
-  return String(url).replace('localhost', '127.0.0.1')
+  return String(url).replace('127.0.0.1', '127.0.0.1')
 }

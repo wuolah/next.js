@@ -526,7 +526,7 @@ createNextDescribe(
           'og:image:alt': 'A alt txt for og',
           'og:image': isNextDev
             ? expect.stringMatching(
-                /http:\/\/localhost:\d+\/opengraph\/static\/opengraph-image.png\?b76e8f0282c93c8e/
+                /http:\/\/127.0.0.1:\d+\/opengraph\/static\/opengraph-image.png\?b76e8f0282c93c8e/
               )
             : 'https://example.com/opengraph/static/opengraph-image.png?b76e8f0282c93c8e',
         })
@@ -534,7 +534,7 @@ createNextDescribe(
         await match('meta', 'name', 'content', {
           'twitter:image': isNextDev
             ? expect.stringMatching(
-                /http:\/\/localhost:\d+\/opengraph\/static\/twitter-image.png\?b76e8f0282c93c8e/
+                /http:\/\/127.0.0.1:\d+\/opengraph\/static\/twitter-image.png\?b76e8f0282c93c8e/
               )
             : 'https://example.com/opengraph/static/twitter-image.png?b76e8f0282c93c8e',
           'twitter:image:alt': 'A alt txt for twitter',

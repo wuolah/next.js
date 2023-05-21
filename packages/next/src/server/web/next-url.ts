@@ -24,8 +24,8 @@ const REGEX_LOCALHOST_HOSTNAME =
 
 function parseURL(url: string | URL, base?: string | URL) {
   return new URL(
-    String(url).replace(REGEX_LOCALHOST_HOSTNAME, 'localhost'),
-    base && String(base).replace(REGEX_LOCALHOST_HOSTNAME, 'localhost')
+    String(url).replace(REGEX_LOCALHOST_HOSTNAME, '127.0.0.1'),
+    base && String(base).replace(REGEX_LOCALHOST_HOSTNAME, '127.0.0.1')
   )
 }
 

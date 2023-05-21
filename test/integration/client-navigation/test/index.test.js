@@ -1002,7 +1002,7 @@ describe('Client Navigation', () => {
       expect(text).toBe('10')
 
       expect(await browser.url()).toBe(
-        `http://localhost:${context.appPort}/nav/querystring/10#10`
+        `http://127.0.0.1:${context.appPort}/nav/querystring/10#10`
       )
       await browser.close()
     })
@@ -1018,7 +1018,7 @@ describe('Client Navigation', () => {
       expect(text).toBe('10')
 
       expect(await browser.url()).toBe(
-        `http://localhost:${context.appPort}/nav/querystring/10#10`
+        `http://127.0.0.1:${context.appPort}/nav/querystring/10#10`
       )
       await browser.close()
     })

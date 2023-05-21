@@ -6,7 +6,7 @@
  */
 export function cleanURL(urlString: string): string {
   const url = new URL(urlString)
-  url.host = 'localhost:3000'
+  url.host = '127.0.0.1:3000'
   url.search = ''
   url.protocol = 'http'
   return url.toString()

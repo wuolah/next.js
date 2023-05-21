@@ -452,7 +452,7 @@ describe('Production Usage', () => {
     })
 
     it('should allow etag header support', async () => {
-      const url = `http://localhost:${appPort}`
+      const url = `http://127.0.0.1:${appPort}`
       const etag = (await fetchViaHTTP(url, '/')).headers.get('ETag')
 
       const headers = { 'If-None-Match': etag }
@@ -461,7 +461,7 @@ describe('Production Usage', () => {
     })
 
     it('should allow etag header support with getStaticProps', async () => {
-      const url = `http://localhost:${appPort}`
+      const url = `http://127.0.0.1:${appPort}`
       const etag = (await fetchViaHTTP(url, '/fully-static')).headers.get(
         'ETag'
       )
@@ -476,7 +476,7 @@ describe('Production Usage', () => {
     // TODO: should we generate weak etags for streaming getServerSideProps?
     // this is currently not expected to work with react-18
     it.skip('should allow etag header support with getServerSideProps', async () => {
-      const url = `http://localhost:${appPort}`
+      const url = `http://127.0.0.1:${appPort}`
       const etag = (await fetchViaHTTP(url, '/fully-dynamic')).headers.get(
         'ETag'
       )
@@ -489,14 +489,14 @@ describe('Production Usage', () => {
     })
 
     it('should have X-Powered-By header support', async () => {
-      const url = `http://localhost:${appPort}`
+      const url = `http://127.0.0.1:${appPort}`
       const header = (await fetchViaHTTP(url, '/')).headers.get('X-Powered-By')
 
       expect(header).toBe('Next.js')
     })
 
     it('should render 404 for routes that do not exist', async () => {
-      const url = `http://localhost:${appPort}`
+      const url = `http://127.0.0.1:${appPort}`
       const res = await fetchViaHTTP(url, '/abcdefghijklmno')
       const text = await res.text()
       const $html = cheerio.load(text)
@@ -512,7 +512,7 @@ describe('Production Usage', () => {
 
     it('should render 200 for POST on page', async () => {
       const res = await fetchViaHTTP(
-        `http://localhost:${appPort}`,
+        `http://127.0.0.1:${appPort}`,
         '/fully-dynamic',
         undefined,
         {
@@ -524,7 +524,7 @@ describe('Production Usage', () => {
 
     it('should render 404 for POST on missing page', async () => {
       const res = await fetchViaHTTP(
-        `http://localhost:${appPort}`,
+        `http://127.0.0.1:${appPort}`,
         '/fake-page',
         undefined,
         {
@@ -535,13 +535,13 @@ describe('Production Usage', () => {
     })
 
     it('should render 404 for _next routes that do not exist', async () => {
-      const url = `http://localhost:${appPort}`
+      const url = `http://127.0.0.1:${appPort}`
       const res = await fetchViaHTTP(url, '/_next/abcdef')
       expect(res.status).toBe(404)
     })
 
     it('should render 404 even if the HTTP method is not GET or HEAD', async () => {
-      const url = `http://localhost:${appPort}`
+      const url = `http://127.0.0.1:${appPort}`
       const methods = ['POST', 'PUT', 'DELETE']
       for (const method of methods) {
         const res = await fetchViaHTTP(url, '/_next/abcdef', undefined, {
@@ -552,14 +552,14 @@ describe('Production Usage', () => {
     })
 
     it('should render 404 for dotfiles in /static', async () => {
-      const url = `http://localhost:${appPort}`
+      const url = `http://127.0.0.1:${appPort}`
       const res = await fetchViaHTTP(url, '/static/.env')
       expect(res.status).toBe(404)
     })
 
     it('should return 405 method on static then GET and HEAD', async () => {
       const res = await fetchViaHTTP(
-        `http://localhost:${appPort}`,
+        `http://127.0.0.1:${appPort}`,
         '/static/data/item.txt',
         undefined,
         {
@@ -580,7 +580,7 @@ describe('Production Usage', () => {
 
       for (const file of files) {
         const res = await fetchViaHTTP(
-          `http://localhost:${appPort}`,
+          `http://127.0.0.1:${appPort}`,
           `/_next/${file}`,
           undefined,
           {
@@ -602,7 +602,7 @@ describe('Production Usage', () => {
 
       for (const file of files) {
         const res = await fetchViaHTTP(
-          `http://localhost:${appPort}`,
+          `http://127.0.0.1:${appPort}`,
           `/_next/${file}`,
           undefined,
           {
@@ -615,7 +615,7 @@ describe('Production Usage', () => {
     })
 
     it('should set Content-Length header', async () => {
-      const url = `http://localhost:${appPort}`
+      const url = `http://127.0.0.1:${appPort}`
       const res = await fetchViaHTTP(url, '/')
       expect(res.headers.get('Content-Length')).toBeDefined()
     })
@@ -626,7 +626,7 @@ describe('Production Usage', () => {
         '../.next',
         REACT_LOADABLE_MANIFEST
       ))
-      const url = `http://localhost:${appPort}`
+      const url = `http://127.0.0.1:${appPort}`
 
       const resources = new Set()
 
@@ -683,7 +683,7 @@ describe('Production Usage', () => {
     it('should set correct Cache-Control header for static 404s', async () => {
       // this is to fix where 404 headers are set to 'public, max-age=31536000, immutable'
       const res = await fetchViaHTTP(
-        `http://localhost:${appPort}`,
+        `http://127.0.0.1:${appPort}`,
         `/_next//static/common/bad-static.js`
       )
 
@@ -712,14 +712,14 @@ describe('Production Usage', () => {
 
   describe('API routes', () => {
     it('should work with pages/api/index.js', async () => {
-      const url = `http://localhost:${appPort}`
+      const url = `http://127.0.0.1:${appPort}`
       const res = await fetchViaHTTP(url, `/api`)
       const body = await res.text()
       expect(body).toEqual('API index works')
     })
 
     it('should work with pages/api/hello.js', async () => {
-      const url = `http://localhost:${appPort}`
+      const url = `http://127.0.0.1:${appPort}`
       const res = await fetchViaHTTP(url, `/api/hello`)
       const body = await res.text()
       expect(body).toEqual('API hello works')
@@ -729,20 +729,20 @@ describe('Production Usage', () => {
     // to .next/server/pages/api but it doesn't move the asset file.
     // In the future, it would be nice to make `__dirname` work too.
     it('does not work with pages/api/readfile-dirname.js', async () => {
-      const url = `http://localhost:${appPort}`
+      const url = `http://127.0.0.1:${appPort}`
       const res = await fetchViaHTTP(url, `/api/readfile-dirname`)
       expect(res.status).toBe(500)
     })
 
     it('should work with pages/api/readfile-processcwd.js', async () => {
-      const url = `http://localhost:${appPort}`
+      const url = `http://127.0.0.1:${appPort}`
       const res = await fetchViaHTTP(url, `/api/readfile-processcwd`)
       const body = await res.text()
       expect(body).toBe('item')
     })
 
     it('should work with dynamic params and search string', async () => {
-      const url = `http://localhost:${appPort}`
+      const url = `http://127.0.0.1:${appPort}`
       const res = await fetchViaHTTP(url, `/api/post-1?val=1`)
       const body = await res.json()
 
@@ -1085,7 +1085,7 @@ describe('Production Usage', () => {
   })
 
   it('should not expose the compiled page file in development', async () => {
-    const url = `http://localhost:${appPort}`
+    const url = `http://127.0.0.1:${appPort}`
     await fetchViaHTTP(`${url}`, `/stateless`) // make sure the stateless page is built
     const clientSideJsRes = await fetchViaHTTP(
       `${url}`,

@@ -22,8 +22,8 @@ function runTests(harness: Harness) {
     expect(json).toEqual({ hello: 'world', input: 'test' })
   })
 
-  it('should be able to use PORT and fetch from localhost', async () => {
-    const res = await fetch('/api/localhost')
+  it('should be able to use PORT and fetch from 127.0.0.1', async () => {
+    const res = await fetch('/api/127.0.0.1')
     const json = await res.json()
     expect(json).toEqual({ hello: 'world', input: 'test' })
   })

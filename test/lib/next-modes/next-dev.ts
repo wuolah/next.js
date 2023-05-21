@@ -80,8 +80,13 @@ export class NextDevInstance extends NextInstance {
             // turbo devserver emits stdout in rust directly, can contain unexpected chars with color codes
             // strip out again for the safety
             this._url = msg.split('url: ').pop().split(/\s/)[0].trim()
+            this._url = this._url.replace(/localhost/g, '127.0.0.1')
             try {
               this._parsedUrl = new URL(this._url)
+
+              if (this._parsedUrl.hostname === 'localhost') {
+                this._parsedUrl.hostname = '127.0.0.1'
+              }
             } catch (err) {
               reject({
                 err,

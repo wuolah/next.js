@@ -3,7 +3,7 @@ export default function SSR(props) {
 }
 
 export async function getServerSideProps() {
-  const res = await fetch('http://localhost:44001')
+  const res = await fetch('http://127.0.0.1:44001')
   const props = await res.json()
   return { props }
 }

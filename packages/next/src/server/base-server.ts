@@ -704,11 +704,11 @@ export default abstract class Server<ServerOptions extends Options = Options> {
           // x-matched-path is the source of truth, it tells what page
           // should be rendered because we don't process rewrites in minimalMode
           let matchedPath = normalizeRscPath(
-            new URL(req.headers['x-matched-path'], 'http://localhost').pathname,
+            new URL(req.headers['x-matched-path'], 'http://127.0.0.1').pathname,
             this.hasAppDir
           )
 
-          let urlPathname = new URL(req.url, 'http://localhost').pathname
+          let urlPathname = new URL(req.url, 'http://127.0.0.1').pathname
 
           // For ISR  the URL is normalized to the prerenderPath so if
           // it's a data request the URL path will be the data URL,

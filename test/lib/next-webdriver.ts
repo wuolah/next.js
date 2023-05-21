@@ -104,7 +104,7 @@ export default async function webdriver(
   const fullUrl = getFullUrl(
     appPortOrUrl,
     url,
-    isBrowserStack ? deviceIP : 'localhost'
+    isBrowserStack ? deviceIP : '127.0.0.1'
   )
 
   console.log(`\n> Loading browser with ${fullUrl}\n`)

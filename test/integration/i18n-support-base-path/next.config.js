@@ -84,7 +84,7 @@ module.exports = {
       },
       {
         source: '/rewrite-5',
-        destination: 'http://localhost:__EXTERNAL_PORT__',
+        destination: 'http://127.0.0.1:__EXTERNAL_PORT__',
       },
       {
         source: '/sitemap.xml',

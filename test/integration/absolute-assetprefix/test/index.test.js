@@ -27,7 +27,7 @@ describe('absolute assetPrefix with path prefix', () => {
       cdnAccessLog.push(proxyPath)
       const proxyReq = http.request(
         {
-          hostname: 'localhost',
+          hostname: '127.0.0.1',
           port: appPort,
           path: proxyPath,
           method: clientReq.method,
@@ -37,7 +37,7 @@ describe('absolute assetPrefix with path prefix', () => {
           // cdn must be configured to allow requests from this origin
           proxyRes.headers[
             'Access-Control-Allow-Origin'
-          ] = `http://localhost:${appPort}`
+          ] = `http://127.0.0.1:${appPort}`
           clientRes.writeHead(proxyRes.statusCode, proxyRes.headers)
           proxyRes.pipe(clientRes, { end: true })
         }

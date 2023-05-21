@@ -145,7 +145,7 @@ describe('serverPatchReducer', () => {
       children,
       initialParallelRoutes,
       isServer: false,
-      location: new URL('/linking/about', 'https://localhost') as any,
+      location: new URL('/linking/about', 'https://127.0.0.1') as any,
     })
     const action: ServerPatchAction = {
       type: ACTION_SERVER_PATCH,
@@ -328,7 +328,7 @@ describe('serverPatchReducer', () => {
       children,
       initialParallelRoutes,
       isServer: false,
-      location: new URL('/linking/about', 'https://localhost') as any,
+      location: new URL('/linking/about', 'https://127.0.0.1') as any,
     })
 
     const state2 = createInitialRouterState({
@@ -338,7 +338,7 @@ describe('serverPatchReducer', () => {
       children,
       initialParallelRoutes,
       isServer: false,
-      location: new URL('/linking/about', 'https://localhost') as any,
+      location: new URL('/linking/about', 'https://127.0.0.1') as any,
     })
 
     const action: ServerPatchAction = {
@@ -490,7 +490,7 @@ describe('serverPatchReducer', () => {
 
     const navigateAction: NavigateAction = {
       type: ACTION_NAVIGATE,
-      url: new URL('/linking/about', 'https://localhost'),
+      url: new URL('/linking/about', 'https://127.0.0.1'),
       isExternalUrl: false,
       locationSearch: '',
       navigateType: 'push',
@@ -511,7 +511,7 @@ describe('serverPatchReducer', () => {
       children,
       initialParallelRoutes,
       isServer: false,
-      location: new URL(initialCanonicalUrl, 'https://localhost') as any,
+      location: new URL(initialCanonicalUrl, 'https://127.0.0.1') as any,
     })
 
     const stateAfterNavigate = await runPromiseThrowChain(() =>

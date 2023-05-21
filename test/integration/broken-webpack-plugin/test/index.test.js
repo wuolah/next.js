@@ -21,7 +21,7 @@ describe('Handles a broken webpack plugin (precompile)', () => {
       },
     })
     await waitPort({
-      host: 'localhost',
+      host: '127.0.0.1',
       port: appPort,
     })
   })

@@ -11,9 +11,9 @@ export const invokeRequest = async (
 ) => {
   const parsedUrl = new URL(targetUrl)
 
-  // force localhost to IPv4 as some DNS may
+  // force 127.0.0.1 to IPv4 as some DNS may
   // resolve to IPv6 instead
-  if (parsedUrl.hostname === 'localhost') {
+  if (parsedUrl.hostname === '127.0.0.1') {
     parsedUrl.hostname = '127.0.0.1'
   }
   const invokeHeaders = filterReqHeaders({
