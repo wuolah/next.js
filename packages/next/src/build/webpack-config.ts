@@ -1763,6 +1763,7 @@ export default async function getBaseWebpackConfig(
       }, {} as Record<string, string>),
       modules: [
         'node_modules',
+        NEXT_PROJECT_ROOT_DIST,
         ...nodePathList, // Support for NODE_PATH environment variable
       ],
       plugins: [],
@@ -1785,11 +1786,11 @@ export default async function getBaseWebpackConfig(
                 resolve: {
                   alias: {
                     // Alias next/head component to noop for RSC
-                    [require.resolve('next/head')]: require.resolve(
+                    ['next/head']: require.resolve(
                       'next/dist/client/components/noop-head'
                     ),
                     // Alias next/dynamic
-                    [require.resolve('next/dynamic')]: require.resolve(
+                    ['next/dynamic']: require.resolve(
                       'next/dist/shared/lib/app-dynamic'
                     ),
                     'react/jsx-runtime$': `next/dist/compiled/react${bundledReactChannel}/jsx-runtime`,
