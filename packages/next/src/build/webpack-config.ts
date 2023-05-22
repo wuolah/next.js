@@ -1785,14 +1785,20 @@ export default async function getBaseWebpackConfig(
                 },
                 resolve: {
                   alias: {
-                    // Alias next/head component to noop for RSC
-                    ['next/head']: require.resolve(
+                    // Alias next/head component to noop for RSC cjs and esm
+                    [require.resolve('next/head')]: require.resolve(
                       'next/dist/client/components/noop-head'
                     ),
-                    // Alias next/dynamic
-                    ['next/dynamic']: require.resolve(
+                    [require.resolve('next/head/index.esm.js')]:
+                      require.resolve(
+                        'next/dist/esm/client/components/noop-head'
+                      ),
+                    // Alias next/dynamic cjs and esm
+                    [require.resolve('next/dynamic')]: require.resolve(
                       'next/dist/shared/lib/app-dynamic'
                     ),
+                    [require.resolve('next/dynamic/index.esm.js')]:
+                      require.resolve('next/dist/esm/shared/lib/app-dynamic'),
                     'react/jsx-runtime$': `next/dist/compiled/react${bundledReactChannel}/jsx-runtime`,
                     'react/jsx-dev-runtime$': `next/dist/compiled/react${bundledReactChannel}/jsx-dev-runtime`,
                     'react-dom/server.edge$': `next/dist/compiled/react-dom${bundledReactChannel}/server.edge`,
