@@ -1,0 +1,1 @@
+{"version":3,"file":"DialogHeader.js","sourceRoot":"","sources":["../../../../src/internal/components/Dialog/DialogHeader.tsx"],"names":[],"mappings":"AAAA,OAAO,KAAK,KAAK,MAAM,OAAO,CAAA;AAO9B,MAAM,YAAY,GAAgC,SAAS,YAAY,CAAC,EACtE,QAAQ,EACR,SAAS,GACV;IACC,OAAO,CACL,gEAA+B,SAAS,EAAE,SAAS,IAChD,QAAQ,CACL,CACP,CAAA;AACH,CAAC,CAAA;AAED,OAAO,EAAE,YAAY,EAAE,CAAA"}

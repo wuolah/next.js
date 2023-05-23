@@ -125,52 +125,53 @@ function prefetch(
   appOptions: AppRouterPrefetchOptions,
   isAppRouter: boolean
 ): void {
-  if (typeof window === 'undefined') {
-    return
-  }
+  return;
+  // if (typeof window === 'undefined') {
+  //   return
+  // }
 
-  // app-router supports external urls out of the box so it shouldn't short-circuit here as support for e.g. `replace` is added in the app-router.
-  if (!isAppRouter && !isLocalURL(href)) {
-    return
-  }
+  // // app-router supports external urls out of the box so it shouldn't short-circuit here as support for e.g. `replace` is added in the app-router.
+  // if (!isAppRouter && !isLocalURL(href)) {
+  //   return
+  // }
 
-  // We should only dedupe requests when experimental.optimisticClientCache is
-  // disabled.
-  if (!options.bypassPrefetchedCheck) {
-    const locale =
-      // Let the link's locale prop override the default router locale.
-      typeof options.locale !== 'undefined'
-        ? options.locale
-        : // Otherwise fallback to the router's locale.
-        'locale' in router
-        ? router.locale
-        : undefined
+  // // We should only dedupe requests when experimental.optimisticClientCache is
+  // // disabled.
+  // if (!options.bypassPrefetchedCheck) {
+  //   const locale =
+  //     // Let the link's locale prop override the default router locale.
+  //     typeof options.locale !== 'undefined'
+  //       ? options.locale
+  //       : // Otherwise fallback to the router's locale.
+  //       'locale' in router
+  //       ? router.locale
+  //       : undefined
 
-    const prefetchedKey = href + '%' + as + '%' + locale
+  //   const prefetchedKey = href + '%' + as + '%' + locale
 
-    // If we've already fetched the key, then don't prefetch it again!
-    if (prefetched.has(prefetchedKey)) {
-      return
-    }
+  //   // If we've already fetched the key, then don't prefetch it again!
+  //   if (prefetched.has(prefetchedKey)) {
+  //     return
+  //   }
 
-    // Mark this URL as prefetched.
-    prefetched.add(prefetchedKey)
-  }
+  //   // Mark this URL as prefetched.
+  //   prefetched.add(prefetchedKey)
+  // }
 
-  const prefetchPromise = isAppRouter
-    ? (router as AppRouterInstance).prefetch(href, appOptions)
-    : (router as NextRouter).prefetch(href, as, options)
+  // const prefetchPromise = isAppRouter
+  //   ? (router as AppRouterInstance).prefetch(href, appOptions)
+  //   : (router as NextRouter).prefetch(href, as, options)
 
-  // Prefetch the JSON page if asked (only in the client)
-  // We need to handle a prefetch error here since we may be
-  // loading with priority which can reject but we don't
-  // want to force navigation since this is only a prefetch
-  Promise.resolve(prefetchPromise).catch((err) => {
-    if (process.env.NODE_ENV !== 'production') {
-      // rethrow to show invalid URL errors
-      throw err
-    }
-  })
+  // // Prefetch the JSON page if asked (only in the client)
+  // // We need to handle a prefetch error here since we may be
+  // // loading with priority which can reject but we don't
+  // // want to force navigation since this is only a prefetch
+  // Promise.resolve(prefetchPromise).catch((err) => {
+  //   if (process.env.NODE_ENV !== 'production') {
+  //     // rethrow to show invalid URL errors
+  //     throw err
+  //   }
+  // })
 }
 
 function isModifiedEvent(event: React.MouseEvent): boolean {
